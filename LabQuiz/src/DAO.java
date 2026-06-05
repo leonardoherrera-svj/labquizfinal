@@ -47,10 +47,86 @@ public class DAO {
             ranking.add(linha);
         }
     }
+    
+    
 
     return ranking;
 }
+    public Pergunta buscarPerguntaPorId(int id) throws Exception {
+    String sql = "SELECT * FROM tb_pergunta WHERE id = ?";
+
+    try (java.sql.Connection conn = ConexaoBD.obterConexao();
+         java.sql.PreparedStatement ps = conn.prepareStatement(sql)) {
+
+        ps.setInt(1, id);
+
+        try (java.sql.ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                Pergunta pergunta = new Pergunta();
+
+                pergunta.setId(rs.getInt("id"));
+                pergunta.setEnunciado(rs.getString("enunciado"));
+                pergunta.setImagem(rs.getString("imagem"));
+                pergunta.setAlternativaA(rs.getString("alternativa_a"));
+                pergunta.setAlternativaB(rs.getString("alternativa_b"));
+                pergunta.setAlternativaC(rs.getString("alternativa_c"));
+                pergunta.setAlternativaD(rs.getString("alternativa_d"));
+                pergunta.setRespostaCorreta(rs.getString("resposta_correta"));
+                pergunta.setDica(rs.getString("dica"));
+                pergunta.setNivel(rs.getString("nivel"));
+
+                return pergunta;
+            }
+        }
+    }
+
+    return null;
+}
     
+    public void atualizarPergunta(Pergunta pergunta) throws Exception {
+    String sql = "UPDATE tb_pergunta SET "
+            + "enunciado = ?, "
+            + "imagem = ?, "
+            + "alternativa_a = ?, "
+            + "alternativa_b = ?, "
+            + "alternativa_c = ?, "
+            + "alternativa_d = ?, "
+            + "resposta_correta = ?, "
+            + "dica = ?, "
+            + "nivel = ? "
+            + "WHERE id = ?";
+
+    try (java.sql.Connection conn = ConexaoBD.obterConexao();
+         java.sql.PreparedStatement ps = conn.prepareStatement(sql)) {
+
+        ps.setString(1, pergunta.getEnunciado());
+        ps.setString(2, pergunta.getImagem());
+        ps.setString(3, pergunta.getAlternativaA());
+        ps.setString(4, pergunta.getAlternativaB());
+        ps.setString(5, pergunta.getAlternativaC());
+        ps.setString(6, pergunta.getAlternativaD());
+        ps.setString(7, pergunta.getRespostaCorreta());
+        ps.setString(8, pergunta.getDica());
+        ps.setString(9, pergunta.getNivel());
+        ps.setInt(10, pergunta.getId());
+
+        ps.executeUpdate();
+    }
+}
+    
+    public void atualizarAluno(Usuario aluno) throws Exception {
+    String sql = "UPDATE tb_usuario SET nome = ?, senha = ? WHERE usuario = ? AND tipo = 'aluno'";
+
+    try (java.sql.Connection conn = ConexaoBD.obterConexao();
+         java.sql.PreparedStatement ps = conn.prepareStatement(sql)) {
+
+        ps.setString(1, aluno.getNome());
+        ps.setString(2, aluno.getSenha());
+        ps.setString(3, aluno.getUsuario());
+
+        ps.executeUpdate();
+    }
+}
     
    public java.util.ArrayList<Pergunta> listarPerguntas() throws Exception {
     java.util.ArrayList<Pergunta> perguntas = new java.util.ArrayList<>();

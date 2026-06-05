@@ -20,17 +20,39 @@ public class TelaAcerto extends javax.swing.JFrame {
      */
     public TelaAcerto() {
     initComponents();
+
+    setContentPane(jPanel3);
+    setSize(700, 520);
     setLocationRelativeTo(null);
     setResizable(false);
+
+    btnProximaQuestao.setUI(new javax.swing.plaf.basic.BasicButtonUI());
+    btnProximaQuestao.setBackground(new java.awt.Color(39, 51, 54));
+    btnProximaQuestao.setForeground(java.awt.Color.WHITE);
+    btnProximaQuestao.setFocusPainted(false);
+    btnProximaQuestao.setBorderPainted(false);
+    btnProximaQuestao.setOpaque(true);
 }
 
 public TelaAcerto(TelaAlunoQuestao telaQuiz) {
     initComponents();
+
     this.telaQuiz = telaQuiz;
 
+    setContentPane(jPanel3);
+    setSize(700, 520);
     setLocationRelativeTo(null);
     setResizable(false);
+
+    btnProximaQuestao.setUI(new javax.swing.plaf.basic.BasicButtonUI());
+    btnProximaQuestao.setBackground(new java.awt.Color(39, 51, 54));
+    btnProximaQuestao.setForeground(java.awt.Color.WHITE);
+    btnProximaQuestao.setFocusPainted(false);
+    btnProximaQuestao.setBorderPainted(false);
+    btnProximaQuestao.setOpaque(true);
 }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -71,7 +71,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         BtnSouprofessor.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         BtnSouprofessor.setForeground(new java.awt.Color(39, 51, 54));
-        BtnSouprofessor.setText("Sou professor");
+        BtnSouprofessor.setText(" Professor");
         BtnSouprofessor.addActionListener(this::BtnSouprofessorActionPerformed);
 
         TxtUsuario.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -143,7 +143,7 @@ public class TelaLogin extends javax.swing.JFrame {
         BtnSoualuno.setBackground(new java.awt.Color(39, 51, 54));
         BtnSoualuno.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         BtnSoualuno.setForeground(new java.awt.Color(255, 255, 255));
-        BtnSoualuno.setText("Sou aluno");
+        BtnSoualuno.setText("Aluno");
         BtnSoualuno.addActionListener(this::BtnSoualunoActionPerformed);
 
         javax.swing.GroupLayout jpnlPrincipalLayout = new javax.swing.GroupLayout(jpnlPrincipal);

@@ -47,26 +47,26 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtNomeAluno" alignment="0" min="-2" pref="341" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txtConfirmarSenhaAluno" alignment="0" pref="263" max="32767" attributes="0"/>
+                          <Component id="txtSenhaAluno" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtUsuarioAluno" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="lblSenhaAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblConfirmarSenhaAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNomeAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="btnCadastrarAluno" min="-2" pref="165" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnVoltar1" min="-2" pref="112" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnVoltar" min="-2" pref="112" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="lblNomeAluno" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtNomeAluno" alignment="0" min="-2" pref="341" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtConfirmarSenhaAluno" alignment="0" pref="263" max="32767" attributes="0"/>
-                              <Component id="txtSenhaAluno" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtUsuarioAluno" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="lblSenhaAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblConfirmarSenhaAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -114,8 +114,9 @@
                   <Component id="txtConfirmarSenhaAluno" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnVoltar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btnCadastrarAluno" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnVoltar1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnVoltar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
@@ -265,6 +266,27 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Crie o acesso do aluno ao quiz."/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVoltar1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Verdana" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="36" green="33" red="27" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="EDITAR ALUNO"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder>
+                  <Color PropertyName="color" blue="36" green="33" red="27" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltar1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

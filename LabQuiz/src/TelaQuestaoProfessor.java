@@ -8,6 +8,7 @@
  * @author Leonardo
  */
 public class TelaQuestaoProfessor extends javax.swing.JFrame {
+    private int idPerguntaEdicao = -1;
     private String caminhoImagem = "";
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaQuestaoProfessor.class.getName());
     
@@ -35,6 +36,49 @@ public class TelaQuestaoProfessor extends javax.swing.JFrame {
     btnVoltar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(39, 51, 54), 1));
     btnVoltar.setFocusPainted(false);
     btnVoltar.setOpaque(true);
+}
+    
+    private void carregarPerguntaParaEdicao(int idPergunta) {
+    try {
+        DAO dao = new DAO();
+        Pergunta pergunta = dao.buscarPerguntaPorId(idPergunta);
+
+        if (pergunta == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Pergunta não encontrada.");
+            return;
+        }
+
+        txtEnunciado.setText(pergunta.getEnunciado());
+        txtAlternativaA.setText(pergunta.getAlternativaA());
+        txtAlternativaB.setText(pergunta.getAlternativaB());
+        txtAlternativaC.setText(pergunta.getAlternativaC());
+        txtAlternativaD.setText(pergunta.getAlternativaD());
+        txtDica.setText(pergunta.getDica());
+
+        cmbRespostaCorreta.setSelectedItem(pergunta.getRespostaCorreta());
+        cmbNivel.setSelectedItem(pergunta.getNivel());
+
+        caminhoImagem = pergunta.getImagem();
+
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Erro ao carregar pergunta.");
+        e.printStackTrace();
+    }
+}
+    
+    public TelaQuestaoProfessor(int idPergunta) {
+    initComponents();
+
+    setContentPane(jpnPrincipal);
+    pack();
+    setLocationRelativeTo(null);
+    setResizable(false);
+
+    this.idPerguntaEdicao = idPergunta;
+
+    carregarPerguntaParaEdicao(idPergunta);
+
+    btnSalvarPergunta.setText("ATUALIZAR PERGUNTA");
 }
 
     /**
@@ -311,13 +355,19 @@ try {
     pergunta.setNivel(nivel);
 
     DAO dao = new DAO();
+
+if (idPerguntaEdicao == -1) {
     dao.cadastrarPergunta(pergunta);
-
     javax.swing.JOptionPane.showMessageDialog(this, "Pergunta cadastrada com sucesso!");
+} else {
+    pergunta.setId(idPerguntaEdicao);
+    dao.atualizarPergunta(pergunta);
+    javax.swing.JOptionPane.showMessageDialog(this, "Pergunta atualizada com sucesso!");
+}
 
-    MinhasPerguntas tela = new MinhasPerguntas();
-    tela.setVisible(true);
-    this.dispose();
+MinhasPerguntas tela = new MinhasPerguntas();
+tela.setVisible(true);
+this.dispose();
 
 } catch (Exception e) {
     javax.swing.JOptionPane.showMessageDialog(this, "Erro ao cadastrar pergunta.");

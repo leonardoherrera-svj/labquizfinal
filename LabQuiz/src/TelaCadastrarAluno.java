@@ -64,6 +64,7 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         lblConfirmarSenhaAluno = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
         lblSubtitulo = new javax.swing.JLabel();
+        btnVoltar1 = new javax.swing.JButton();
 
         jpnPrincipal.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -117,6 +118,12 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
         lblSubtitulo.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         lblSubtitulo.setText("Crie o acesso do aluno ao quiz.");
 
+        btnVoltar1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        btnVoltar1.setForeground(new java.awt.Color(39, 51, 54));
+        btnVoltar1.setText("EDITAR ALUNO");
+        btnVoltar1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(39, 51, 54)));
+        btnVoltar1.addActionListener(this::btnVoltar1ActionPerformed);
+
         javax.swing.GroupLayout jpnPrincipalLayout = new javax.swing.GroupLayout(jpnPrincipal);
         jpnPrincipal.setLayout(jpnPrincipalLayout);
         jpnPrincipalLayout.setHorizontalGroup(
@@ -131,22 +138,23 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnPrincipalLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jpnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtConfirmarSenhaAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                        .addComponent(txtSenhaAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtUsuarioAluno, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(lblSenhaAluno)
+                    .addComponent(lblConfirmarSenhaAluno)
+                    .addComponent(lblUsuario)
+                    .addComponent(lblNomeAluno)
                     .addGroup(jpnPrincipalLayout.createSequentialGroup()
                         .addComponent(btnCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblNomeAluno)
-                        .addComponent(txtNomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jpnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtConfirmarSenhaAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                            .addComponent(txtSenhaAluno, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsuarioAluno, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addComponent(lblSenhaAluno)
-                        .addComponent(lblConfirmarSenhaAluno)
-                        .addComponent(lblUsuario)))
-                .addGap(174, 174, 174))
+                        .addComponent(btnVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(114, 114, 114))
             .addGroup(jpnPrincipalLayout.createSequentialGroup()
                 .addGroup(jpnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpnPrincipalLayout.createSequentialGroup()
@@ -187,8 +195,9 @@ public class TelaCadastrarAluno extends javax.swing.JFrame {
                 .addComponent(txtConfirmarSenhaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(jpnPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -256,10 +265,66 @@ tela.setVisible(true);
 this.dispose();      // TODO add your handling code here:
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
+try {
+    String nome = txtNomeAluno.getText();
+    String usuarioDigitado = txtUsuarioAluno.getText();
+    String senha = String.valueOf(txtSenhaAluno.getPassword());
+    String confirmarSenha = String.valueOf(txtConfirmarSenhaAluno.getPassword());
+
+    if (nome.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Digite o nome correto do aluno que deseja editar.");
+        return;
+    }
+
+    if (usuarioDigitado.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Digite o usuário correto do aluno que deseja editar.");
+        return;
+    }
+
+    if (senha.isEmpty() || confirmarSenha.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Digite e confirme a nova senha do aluno.");
+        return;
+    }
+
+    if (!senha.equals(confirmarSenha)) {
+        javax.swing.JOptionPane.showMessageDialog(this, "As senhas não são iguais.");
+        return;
+    }
+
+    DAO dao = new DAO();
+
+    if (!dao.usuarioExiste(usuarioDigitado)) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Digite o nome ou usuário correto do aluno que deseja editar.");
+        return;
+    }
+
+    Usuario aluno = new Usuario();
+    aluno.setNome(nome);
+    aluno.setUsuario(usuarioDigitado);
+    aluno.setSenha(senha);
+    aluno.setTipo("aluno");
+
+    dao.atualizarAluno(aluno);
+
+    javax.swing.JOptionPane.showMessageDialog(this, "Aluno atualizado com sucesso!");
+
+    txtNomeAluno.setText("");
+    txtUsuarioAluno.setText("");
+    txtSenhaAluno.setText("");
+    txtConfirmarSenhaAluno.setText("");
+
+} catch (Exception e) {
+    javax.swing.JOptionPane.showMessageDialog(this, "Erro ao editar aluno.");
+    e.printStackTrace();
+}     // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarAluno;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btnVoltar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

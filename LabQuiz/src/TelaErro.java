@@ -16,16 +16,36 @@ public class TelaErro extends javax.swing.JFrame {
      */
     public TelaErro() {
     initComponents();
+
+    setContentPane(jPanel3);
+    setSize(700, 520);
     setLocationRelativeTo(null);
     setResizable(false);
+
+    btnProximaQuestao.setUI(new javax.swing.plaf.basic.BasicButtonUI());
+    btnProximaQuestao.setBackground(new java.awt.Color(178, 0, 0));
+    btnProximaQuestao.setForeground(java.awt.Color.WHITE);
+    btnProximaQuestao.setFocusPainted(false);
+    btnProximaQuestao.setBorderPainted(false);
+    btnProximaQuestao.setOpaque(true);
 }
 
 public TelaErro(TelaAlunoQuestao telaQuiz) {
     initComponents();
+
     this.telaQuiz = telaQuiz;
 
+    setContentPane(jPanel3);
+    setSize(700, 520);
     setLocationRelativeTo(null);
     setResizable(false);
+
+    btnProximaQuestao.setUI(new javax.swing.plaf.basic.BasicButtonUI());
+    btnProximaQuestao.setBackground(new java.awt.Color(178, 0, 0));
+    btnProximaQuestao.setForeground(java.awt.Color.WHITE);
+    btnProximaQuestao.setFocusPainted(false);
+    btnProximaQuestao.setBorderPainted(false);
+    btnProximaQuestao.setOpaque(true);
 }
 
     /**
